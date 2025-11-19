@@ -137,10 +137,9 @@ class AccidentEnv(AbstractEnv):
         distance_from_forward_vehicle = np.linalg.norm(self.agent_vehicle.position - forward_vehicle.position)
         tailgating_reward = min(0, (distance_from_forward_vehicle - 10) / 20)
 
-        # Reward for job well done
+        # Reward for job well done - if agent is in the right-most lane and successfully avoided the crash
         is_right = self.agent_vehicle.lane_index == 3
-        s = self.agent_vehicle.lane.local_coordinates(self.agent_vehicle.position)
-        clearance_bonus = 0.3 if is_right and s > 510 else 0.0
+        clearance_bonus = 0.3 if is_right and self.agent_vehicle.position[0] > 510 else 0.0
 
         return {
             "collision_reward": float(self.vehicle.crashed),
