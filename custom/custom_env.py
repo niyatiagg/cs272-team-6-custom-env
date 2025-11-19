@@ -7,7 +7,7 @@ from highway_env.road.road import Road, RoadNetwork
 from highway_env.utils import near_split
 from highway_env.vehicle.controller import ControlledVehicle
 from highway_env.vehicle.kinematics import Vehicle
-from highway_env.vehicle.behavior import LinearVehicle, IDMVehicle
+from highway_env.vehicle.behavior import LinearVehicle
 
 # A simple class for crashed vehicles to place as hazards
 class CrashedVehicle(Vehicle):
@@ -137,15 +137,22 @@ class AccidentEnv(AbstractEnv):
         distance_from_forward_vehicle = np.linalg.norm(self.agent_vehicle.position - forward_vehicle.position)
         tailgating_reward = min(0, (distance_from_forward_vehicle - 10) / 20)
 
+        # Reward for job well done
+        is_right = self.agent_vehicle.lane_index == 3
+        s = self.agent_vehicle.lane.local_coordinates(self.agent_vehicle.position)
+        clearance_bonus = 0.3 if is_right and s > 510 else 0.0
+
         return {
             "collision_reward": float(self.vehicle.crashed),
             "right_lane_reward": lane / max(len(neighbours) - 1, 1),
             "high_speed_reward": np.clip(scaled_speed, 0, 1),
             "on_road_reward": float(self.vehicle.on_road),
             "reaction_reward": float(reaction_reward),
-            "tailgating_reward": float(tailgating_reward)
+            "tailgating_reward": float(tailgating_reward),
+            "job_well_done_reward" : float(clearance_bonus)
         }
 
+    # TODO: Add a destination?
     def _is_terminated(self) -> bool:
         """The episode is over if the ego vehicle crashed."""
         return (
