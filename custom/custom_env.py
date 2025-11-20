@@ -42,6 +42,9 @@ class AccidentEnv(AbstractEnv):
                 "high_speed_reward": 0.4,  # The reward received when driving at full speed, linearly mapped to zero for
                 # lower speeds according to config["reward_speed_range"].
                 "lane_change_reward": 0,  # The reward received at each lane change action.
+                "reaction_reward": 0.2,      # mild penalty for being slow to react
+                "tailgating_reward": 0.3, # stronger penalty for following too close
+                "job_well_done_reward": 0.3,
                 "reward_speed_range": [10, 30],
                 "normalize_reward": True,
                 "offroad_terminal": False
