@@ -52,7 +52,6 @@ class AccidentEnv(AbstractEnv):
     def _reset(self) -> None:
         self._create_road()
         self._create_vehicles()
-        print(self.vehicle is self.agent_vehicle)
 
     def _create_road(self) -> None:
         """Create a road composed of straight adjacent lanes, with a car accident halfway down its length."""
