@@ -37,7 +37,7 @@ The main objective of the ego-vehicle is to react to the crash on the highway an
 Our reward function retains some rewards from the original highway_env and introduces a couple of additional rewards and penalties, adapted for a crash scenario. The rewards are designed to foster driving at high speed, on the rightmost lanes, and to avoid collisions.
 
 
-| Reward Type | Description | 
+| **Reward Type** | **Description** | 
 | :------- | :------ | 
 | collision_reward | penalty for colliding with another vehicle| 
 | high_speed_reward | reward for driving at posted high speed limit| 
@@ -59,20 +59,21 @@ Our reward function retains some rewards from the original highway_env and intro
 
 
 ## Termination & Truncation
-The episode terminates if - 
+The episode **terminates** if - 
 
 1. The ego vehicle drives off the road.
    
 2. The ego vehicle collides with another vehicle.
 
-The episode truncates if - 
+The episode **truncates** if - 
 
 1. The time limit is exceeded.
 ## Usage
 ### Install depedencies 
 ```pip install highway-env```
 
-You can experience the environment in manual control mode by running 
+You can experience the environment in manual control mode by running
+
 ```python run_custom_env.py```
 ## Citations
 [1] E. Leurent, “An Environment for Autonomous Driving Decision-Making,” GitHub repository. [GitHub, 2018 Available Online](https://github.com/eleurent/highway-env)
