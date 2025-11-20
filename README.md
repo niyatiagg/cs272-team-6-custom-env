@@ -31,17 +31,11 @@ The main objective of the ego-vehicle is to react to the crash on the highway an
 Our reward function retains some rewards from the original highway_env and introduces some additional rewards and penalties, adapted for a crash scenario. The rewards are designed to encourage safe and efficient driving.
 
     collision_reward :
-
     high_speed_reward :
-
     right_lane_reward :
-
     on_road_reward :
-
     reaction_reward : 
-
     tailgating_reward :
-
     job_well_done_reward :
 
 
