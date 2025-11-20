@@ -12,26 +12,19 @@
 
 
 ## Overview
-Our custom environment [accident-v0] simulates a Car Accident scenario built on top of [Highway-Env](https://highway-env.farama.org/environments/highway/) and [Gymnasium](https://gymnasium.farama.org/). Here are the novel customizations we have introduced into our environment - 
+Our custom environment **'accident-v0'** simulates a **Car Accident** scenario built on top of [Highway-Env](https://highway-env.farama.org/environments/highway/) and [Gymnasium](https://gymnasium.farama.org/). Here are the novel customizations we have introduced into our environment - 
 
-1. We have introduced a 2-car crash on the highway, halfway down the road, spread across 2 lanes.
-   
-2. Although the location of the crash is fixed, the crash may occur in any 2 lanes chosen randomly.
-   
+1. We have introduced a 2-car crash on the highway, halfway down the road, spread across 2 lanes.   
+2. Although the location of the crash is fixed, the crash may occur in any 2 lanes chosen randomly.   
 3. We have also modified the reward functions to better suit a highway crash scenario.
 ## Objective
 The main objective of the ego-vehicle is to react to the crash on the highway and respond appropriately in the following ways to ensure safe and efficient driving.
 
-1. Not colliding with other vehicles or the crashed  vehicles.
-   
-2. Moving away from the crash lanes.
-   
-3. Adjusting speed as it approaches crash, but ultimately driving at posted speed limits once away from crash zone.
-   
-4. Not coming to a complete stop at any point.
-   
-5. Not tailgating any vehicles at any point.
-   
+1. Not colliding with other vehicles or the crashed  vehicles.  
+2. Moving away from the crash lanes.   
+3. Adjusting speed as it approaches crash, but ultimately driving at high speed once away from crash.   
+4. Not coming to a complete stop at any point.   
+5. Not tailgating any vehicles at any point.   
 6. Not driving off the road at any point.
 ## Reward Function
 Our reward function retains some rewards from the original highway_env and introduces a couple of additional rewards and penalties, adapted for a crash scenario. The rewards are designed to foster driving at high speed, on the rightmost lanes, and to avoid collisions.
@@ -59,13 +52,12 @@ Our reward function retains some rewards from the original highway_env and intro
 
 
 ## Termination & Truncation
-The episode **terminates** if - 
+**The episode terminates if** - 
 
-1. The ego vehicle drives off the road.
-   
+1. The ego vehicle drives off the road.   
 2. The ego vehicle collides with another vehicle.
 
-The episode **truncates** if - 
+**The episode truncates if** - 
 
 1. The time limit is exceeded.
 ## Usage
