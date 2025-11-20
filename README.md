@@ -17,4 +17,5 @@
 Our custom environment simulates a Car Accident scenario built on top of [Highway-Env](https://highway-env.farama.org/environments/highway/) and [Gymnasium](https://gymnasium.farama.org/). We added a 2-car crash halfway down the road and modified the reward function to encourage safer driving. You can experience the environment in manual control mode by running ```python run_custom_env.py```.
 ## Citations
 [1] E. Leurent, “An Environment for Autonomous Driving Decision-Making,” GitHub repository. [GitHub, 2018 Available Online](https://github.com/eleurent/highway-env)
+
 [2] M. Towers et al., “Gymnasium.” [Zenodo, Mar. 2023 Available Online](https://zenodo.org/records/8127026)
