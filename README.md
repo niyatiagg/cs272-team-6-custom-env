@@ -1,5 +1,5 @@
-# CS 272 - Final Project  
-## Custom Environment- Team 6 - CAR CRASH
+# CS 272 - Final Project - Team 6
+## Custom Environment - CAR CRASH
 ## Authors: Niyati Aggarwal, Rajshri Ganesh Iyer and Lillian Zhang
 
 ## Overview
